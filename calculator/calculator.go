@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"fmt"
 	"strconv"
 )
 
@@ -22,11 +22,11 @@ func getOperatorInput(prompt string) (string, error) {
 	case "+", "-", "*", "/":
 		return input, nil
 	default:
-		return "", fmt.Errorf("Invalid operator: %s", input)
+		return "", fmt.Errorf("Error: Invalid operator!")
 	}
 }
 
-func applyOperator(num1, num2 float64, operator string) (float64, error) {
+func performOperation(num1, num2 float64, operator string) (float64, error) {
 	switch operator {
 	case "+":
 		return num1 + num2, nil
@@ -39,8 +39,9 @@ func applyOperator(num1, num2 float64, operator string) (float64, error) {
 			return num1 / num2, nil
 		}
 		return 0, fmt.Errorf("Error: Division by zero!")
+	default:
+		return 0, fmt.Errorf("Error: Invalid operator!")
 	}
-	return 0, fmt.Errorf("Invalid operator!")
 }
 
 func checkError(err error) {
@@ -60,7 +61,7 @@ func main() {
 	operator, err := getOperatorInput("Enter an operator (+, -, *, /): ")
 	checkError(err)
 
-	result, err := applyOperator(num1, num2, operator)
+	result, err := performOperation(num1, num2, operator)
 	checkError(err)
 
 	fmt.Printf("%.2f %s %.2f = %.2f\n", num1, operator, num2, result)

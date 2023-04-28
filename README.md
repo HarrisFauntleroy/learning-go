@@ -52,3 +52,10 @@ go test
 
 This will run all tests associated with the project and display the results.
 
+## Formatting
+
+To format Go code, you can use the gofmt command. This is a tool that comes with the Go installation and is used to format Go code in a standardized way.
+
+```sh
+gofmt -w ./project-name/example.go
+```
