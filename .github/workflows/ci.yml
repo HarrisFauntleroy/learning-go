@@ -1,6 +1,3 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
 name: Go
 
 on:
@@ -21,11 +18,8 @@ jobs:
       with:
         go-version: 1.19
 
-    - name: Change to calculator directory
-      run: cd calculator
-
     - name: Build
-      run: go build -v ./...
+      run: go build -v ./calculator
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v ./calculator
