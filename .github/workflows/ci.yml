@@ -19,7 +19,9 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go build -v ./calculator
+      working-directory: calculator
+      run: go build -v calculator.go
 
     - name: Test
-      run: go test -v ./calculator
+      working-directory: calculator
+      run: go test -v 
